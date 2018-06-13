@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<!-- Radio songs -->
+<radio>
+    <station name="pop">
+        <song>
+            <title>Siesta</title>
+            <composer>Jahzzar</composer>
+            <file>./songs/Jahzzar_-_05_-_Siesta.mp3</file>
+        </song>
+        <song>
+            <title>Lips</title>
+            <composer>Plurabelle</composer>
+            <file>./songs/Plurabelle_-_01_-_Lips.mp3</file>
+        </song>
+        <song>
+            <title>Favorite Secrets</title>
+            <composer>Waylon Thornton</composer>
+            <file>/songs/02_-_Favorite_Secrets.mp3</file>
+        </song>
+    </station>
+    <station name="rock">
+        <song>
+            <title>Ragtime Dance</title>
+            <composer>Scott Joplin</composer>
+            <file>./songs/Scott_Joplin_-_Ragtime_Dance.mp3</file>
+        </song>
+        <song>
+            <title>We Wish You a Merry Christmas</title>
+            <composer>United States Marine Band</composer>
+            <file>./songs/United_States_Marine_Band_-_We_Wish_You_a_Merry_Christmas.mp3</file>
+        </song>
+    </station>
+    <station name="historic">
+        <song>
+            <title>Ragtime Dance</title>
+            <composer>Scott Joplin</composer>
+            <file>./songs/Scott_Joplin_-_Ragtime_Dance.mp3</file>
+        </song>
+        <song>
+            <title>We Wish You a Merry Christmas</title>
+            <composer>United States Marine Band</composer>
+            <file>./songs/United_States_Marine_Band_-_We_Wish_You_a_Merry_Christmas.mp3</file>
+        </song>
+    </station>
+    <station name="country">
+        <song>
+            <title>Swan Song</title>
+            <composer>Paper Navy</composer>
+            <file>./songs/Paper_Navy_-_08_-_Swan_Song.mp3</file>
+        </song>
+    </station>
+</radio>
