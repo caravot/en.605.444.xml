@@ -1,7 +1,0 @@
-AuthUserFile /.htpasswd
-AuthName Login
-AuthType Basic
-
-<LIMIT GET PUT POST>
-require user carrie
-</LIMIT>
