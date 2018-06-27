@@ -1,0 +1,91 @@
+<!DOCTYPE League
+[
+
+<!ELEMENT League (Team+)>
+<!ATTLIST League LName CDATA #REQUIRED>
+
+<!ELEMENT Team (Team_Name, City, Logo?, Players)>
+
+<!ELEMENT Team_Name (#PCDATA)>
+<!ELEMENT City (#PCDATA)>
+<!ELEMENT Logo (#PCDATA)>
+<!ATTLIST Logo Source ENTITY #IMPLIED>
+
+<!ELEMENT Players (Player+)>
+
+<!ELEMENT Player EMPTY>
+<!ATTLIST Player Position CDATA #REQUIRED>
+<!ATTLIST Player PPG CDATA #IMPLIED>
+<!ATTLIST Player RPG CDATA #IMPLIED>
+<!ATTLIST Player Assists CDATA #IMPLIED>
+]>
+
+<League LName="Easter Development League">
+    <Team>
+        <Team_Name>First</Team_Name>
+        <City>Silver Spring</City>
+        <Players>
+            <Player Position="Forward" RPG="24" PPG="5" Assists="50"></Player>
+            <Player Position="Back" RPG="12" Assists="23"></Player>
+            <Player Position="Center" PPG="15"></Player>
+            <Player Position="Guard"></Player>
+            <Player Position="Guard" RPG="3" Assists="5"></Player>
+        </Players>
+    </Team>
+    <Team>
+        <Team_Name>Second</Team_Name>
+        <Logo Source="Secondsters"></Logo>
+        <City>Odenton</City>
+        <Players>
+            <Player Position="Forward" RPG="45" PPG="3" Assists="42"></Player>
+            <Player Position="Back" RPG="4" Assists="6"></Player>
+            <Player Position="Center" PPG="23"></Player>
+            <Player Position="Guard"></Player>
+            <Player Position="Guard" RPG="13" Assists="24"></Player>
+        </Players>
+    </Team>
+    <Team>
+        <Team_Name>Third</Team_Name>
+        <City>Rockville</City>
+        <Players>
+            <Player Position="Forward" RPG="23" PPG="43" Assists="13"></Player>
+            <Player Position="Back" RPG="41" Assists="4"></Player>
+            <Player Position="Center" PPG="41"></Player>
+            <Player Position="Guard"></Player>
+            <Player Position="Guard" RPG="20" Assists="42"></Player>
+        </Players>
+    </Team>
+    <Team>
+        <Team_Name>Fourth</Team_Name>
+        <City>Bethesda</City>
+        <Players>
+            <Player Position="Forward" RPG="12" PPG="3" Assists="21"></Player>
+            <Player Position="Back" RPG="18" Assists="5"></Player>
+            <Player Position="Center" PPG="23"></Player>
+            <Player Position="Guard"></Player>
+            <Player Position="Guard" RPG="26" Assists="18"></Player>
+        </Players>
+    </Team>
+    <Team>
+        <Team_Name>Fifth</Team_Name>
+        <City>Elkridge</City>
+        <Players>
+            <Player Position="Forward" RPG="2" PPG="11" Assists="6"></Player>
+            <Player Position="Back" RPG="4" Assists="9"></Player>
+            <Player Position="Center" PPG="11"></Player>
+            <Player Position="Guard"></Player>
+            <Player Position="Guard" RPG="32" Assists="15"></Player>
+        </Players>
+    </Team>
+    <Team>
+        <Team_Name>Six</Team_Name>
+        <City>Catonsville</City>
+        <Players>
+            <Player Position="Forward" RPG="25" PPG="17" Assists="32"></Player>
+            <Player Position="Back" RPG="15" Assists="13"></Player>
+            <Player Position="Center" PPG="26"></Player>
+            <Player Position="Guard"></Player>
+            <Player Position="Guard" RPG="24" Assists="26"></Player>
+        </Players>
+    </Team>
+</League>

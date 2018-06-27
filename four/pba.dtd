@@ -1,0 +1,17 @@
+<!ELEMENT League (Team+)>
+<!ATTLIST League LName CDATA #REQUIRED>
+
+<!ELEMENT Team (Team_Name, City, Logo?, Players)>
+
+<!ELEMENT Team_Name (#PCDATA)>
+<!ELEMENT City (#PCDATA)>
+<!ELEMENT Logo (#PCDATA)>
+<!ATTLIST Logo Source ENTITY #IMPLIED>
+
+<!ELEMENT Players (Player+)>
+
+<!ELEMENT Player EMPTY>
+<!ATTLIST Player Position CDATA #REQUIRED>
+<!ATTLIST Player PPG CDATA #IMPLIED>
+<!ATTLIST Player RPG CDATA #IMPLIED>
+<!ATTLIST Player Assists CDATA #IMPLIED>
