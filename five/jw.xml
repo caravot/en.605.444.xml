@@ -1,0 +1,10 @@
+<inventory xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="music.xsd">
+    <album albumID="JW0123" category="Modern">
+        <title>Modern Album</title>
+        <artist>MC Lars</artist>
+        <artist>Jay-Z</artist>
+        <tracks length="11:22:33">
+            <track length="22:33:44"></track>
+        </tracks>
+    </album>
+</inventory>

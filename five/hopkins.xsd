@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="message">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="album" minOccurs="1" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="album">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="GUFI" type="gufi" />
+                <xs:element name="sourceAirport" type="airportCode" />
+                <xs:element name="destinationAirport" type="airportCode" />
+                <xs:element name="departureTime" type="xs:dateTime" />
+                <xs:element name="arrivalTime" type="xs:dateTime" />
+                <xs:element name="aircraftType" type="aircraftType" />
+                <xs:element name="aircraftAddress" type="address" />
+                <xs:element name="aircraftSize" type="size" />
+                <xs:element name="altitude" type="altitude" />
+                <xs:element name="beaconCode" type="beacon" default="FFFF" />
+                <xs:element name="comments" type="commmentType" />
+                <xs:element name="latitude" type="lat" />
+                <xs:element name="longitude" type="lon" />
+                <xs:element name="personOnBoard" type="numPeople" />
+                <xs:element name="segment" type="segType" />
+                <xs:element name="category" type="categories" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="gufi">
+        <xs:restriction base="xs:ID">
+            <xs:pattern value="\w{10}" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="airportCode">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z]{3}" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="aircraftType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Za-z]\w{1,3}" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="address">
+        <xs:restriction base="xs:hexBinary">
+            <xs:pattern value="\d{6}" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="size">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="H" />
+            <xs:enumeration value="J" />
+            <xs:enumeration value="" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="altitude">
+        <xs:restriction base="xs:integer">
+            <xs:pattern value="\d{2,3}" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="beacon">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\w{4}" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="commmentType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Za-z0-9\s]{1,3000}" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="lat">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{4}[NS]" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="lon">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{4}[EW]" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="numPeople">
+        <xs:restriction base="xs:positiveInteger">
+            <xs:minInclusive value="1" />
+            <xs:maxInclusive value="999" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="segType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Za-z0-9\s\/\+\*\.☁️]{1,1000}" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="categories">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="L" />
+            <xs:enumeration value="M" />
+            <xs:enumeration value="H" />
+            <xs:enumeration value="J" />
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
+
+

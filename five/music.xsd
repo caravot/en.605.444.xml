@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="inventory">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="album" minOccurs="1" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="album">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="title" type="xs:string" />
+                <xs:element name="artist" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+                <xs:element ref="tracks"/>
+            </xs:sequence>
+            <xs:attribute name="albumID" type="jwType" use="required"/>
+            <xs:attribute name="category" type="catType" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="tracks">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="track" minOccurs="1" maxOccurs="unbounded" />
+            </xs:sequence>
+            <xs:attribute name="length" type="lenType" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="track">
+        <xs:complexType>
+            <xs:attribute name="length" type="lenType" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="jwType">
+        <xs:restriction base="xs:ID">
+            <xs:pattern value="JW\d{4}" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="catType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="New Orleans" />
+            <xs:enumeration value="Swing" />
+            <xs:enumeration value="Modern" />
+            <xs:enumeration value="Bebop" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="lenType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{2}:\d{2}:\d{2}" />
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
+
+
