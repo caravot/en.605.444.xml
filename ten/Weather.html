@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Carrie's XML Class Site</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="main.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" charset="utf-8">
+        var cities = [];
+
+        $( document ).ready(function() {
+            $.ajax({
+                url: 'Weather.xml',
+                dataType: 'xml',
+                success: function(data) {
+                    $(data).find('CITY').each(function(i, e) {
+                        var name = $(this).attr("NAME");
+
+                        $('select#city_list').append('<option value="'+i+'">'+name+'</option>');
+
+                        cities.push({
+                            name: name,
+                            hi: $(this).find("HI").text(),
+                            low: $(this).find("LOW").text(),
+                            description: $(this).find("DESCRIPTION").text(),
+                            icon: $(this).find("ICON").attr("VALUE").toLowerCase()
+                        });
+                    });
+
+                    // populate the first city data
+                    $('select#city_list').val(0);
+                    getCity(0);
+                }
+            });
+
+            // when select changes update city
+            $('select#city_list').change(function(i, e) {
+                getCity($(this).val());
+            });
+        });
+
+        function getCity(index) {
+            $('#temp-high span').text(cities[index].hi);
+            $('#temp-low span').text(cities[index].low);
+            $('#description').text(cities[index].description);
+            $('#weather-icon').attr("src", cities[index].icon + ".gif");
+        }
+    </script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-6">
+            <h1 class="page-header">The Weather Reporter</h1>
+            <div class="form-group">
+                <select class="form-control" id="city_list">
+                </select>
+            </div>
+            <p><img id="weather-icon" src="rain.gif"/></p>
+            <p id="temp-high">Hi: <span></span> F</p>
+            <p id="temp-low">Low: <span></span> F</p>
+            <p id="description"></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
